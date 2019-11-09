@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #get 'somar' => 'calc#somar'
   #get 'fatorial' => 'calc#fatorial'
+  post 'aleatorio' => 'calc#aleatorio'
   post 'somar' => 'calc#somar'
   post 'subtrair' => 'calc#subtrair'
   post 'fatorial' => 'calc#fatorial'

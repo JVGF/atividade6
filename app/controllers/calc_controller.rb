@@ -5,6 +5,12 @@ class CalcController < ApplicationController
     #protect_from_forgery with: :null_session
     #protect_from_forgery unless: -> { request.format.json? }
     #skip_before_action :verify_authenticity_token
+   
+    def aleatorio
+        numero = params[:numero]
+        
+        render json: { resultado: rand(numero) }
+    end
 
     def somar
         #n1=0
