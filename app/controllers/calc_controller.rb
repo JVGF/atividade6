@@ -1,4 +1,3 @@
-
 class CalcController < ApplicationController
     #respond_to :json
     #attr_accessor :resultado
@@ -28,6 +27,105 @@ class CalcController < ApplicationController
         render json: {resultado: a}
     end
    
+    def megasena1
+        numero_jogos=params[:numero_jogos]
+	if (numero_jogos==1)
+        a=[]
+	begin
+        number = rand(59)+1
+        a.push(number) unless a.include?(number)
+        end  while a.size < 6
+        a.sort! {|x, y| x <=> y}
+        render json: {resultado: a}
+        elsif (numero_jogos==2)
+        a=[]
+        b=[]
+        begin
+        number = rand(59)+1
+        number2 = rand(59)+1
+        a.push(number) unless a.include?(number)
+        b.push(number2) unless b.include?(number2)
+        end  while ((a.size < 6)and(b.size < 6))
+        a.sort! {|x, y| x <=> y}
+        b.sort! {|x, y| x <=> y}
+        render json: {jogo_1: a , jogo_2: b}
+        elsif (numero_jogos==5)
+	a=[]
+	b=[]
+	c=[]
+	d=[]
+	e=[]
+	begin 
+	number = rand(59)+1
+
+	number2 = rand(59)+1
+	number3 = rand(59)+1
+	number4 = rand(59)+1
+	number5 = rand(59)+1
+	a.push(number) unless a.include?(number)
+	b.push(number2) unless b.include?(number2)
+	c.push(number3) unless c.include?(number3)
+	d.push(number4) unless d.include?(number4)
+	e.push(number5) unless e.include?(number5)
+	end  while ((a.size < 6)and(b.size < 6)and(c.size < 6)and(d.size < 6)and(e.size < 6))
+	a.sort! {|x, y| x <=> y}
+	b.sort! {|x, y| x <=> y}
+	c.sort! {|x, y| x <=> y}
+	d.sort! {|x, y| x <=> y}
+	e.sort! {|x, y| x <=> y}
+	render json: {jogo_1: a , jogo_2: b , jogo_3: c , jogo_4: d , jogo_5: e}	
+        end
+    end
+
+	def quina
+        numero_jogos=params[:numero_jogos]
+        if (numero_jogos==1)
+        a=[]
+        begin
+        number = rand(79)+1
+        a.push(number) unless a.include?(number)
+        end  while a.size < 5
+        a.sort! {|x, y| x <=> y}
+        render json: {resultado: a}
+        elsif (numero_jogos==2)
+        a=[]
+        b=[]
+        begin
+        number = rand(79)+1
+        number2 = rand(79)+1
+        a.push(number) unless a.include?(number)
+        b.push(number2) unless b.include?(number2)
+        end  while ((a.size < 5)and(b.size < 5))
+        a.sort! {|x, y| x <=> y}
+        b.sort! {|x, y| x <=> y}
+        render json: {jogo_1: a , jogo_2: b}
+        elsif (numero_jogos==5)
+        a=[]
+        b=[]
+        c=[]
+        d=[]
+        e=[]
+        begin
+        number = rand(79)+1
+	number2 = rand(79)+1
+        number3 = rand(79)+1
+        number4 = rand(79)+1
+        number5 = rand(79)+1
+        a.push(number) unless a.include?(number)
+        b.push(number2) unless b.include?(number2)
+        c.push(number3) unless c.include?(number3)
+        d.push(number4) unless d.include?(number4)
+        e.push(number5) unless e.include?(number5)
+        end  while ((a.size < 5)and(b.size < 5)and(c.size < 5)and(d.size < 5)and(e.size < 5))
+        a.sort! {|x, y| x <=> y}
+        b.sort! {|x, y| x <=> y}
+        c.sort! {|x, y| x <=> y}
+        d.sort! {|x, y| x <=> y}
+        e.sort! {|x, y| x <=> y}
+        render json: {jogo_1: a , jogo_2: b , jogo_3: c , jogo_4: d , jogo_5: e}
+        end
+    end
+	
     #def aleatorio
         #lista = Array.new(6)
         #numero = params[:numero]
